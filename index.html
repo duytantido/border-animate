@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {margin: 0; padding: 0;}
+
+		.nav {
+			height: 50px;
+			line-height: 50px;
+			width: 700px;
+			margin: 100px auto;
+			border-top: 1px solid #d1d1d1;
+			position: relative;
+			text-align: center;
+		}
+
+		li {
+			display: inline-block;
+			margin: 0 15px;
+		}
+
+		.btn {
+			
+			text-decoration: none;
+			
+		}
+
+		.bullet  {
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-transition: all .25s ease-in-out;
+			   -moz-transition: all .25s ease-in-out;
+			    -ms-transition: all .25s ease-in-out;
+			     -o-transition: all .25s ease-in-out;
+			        transition: all .25s ease-in-out;
+			-webkit-transform: translate3d(0px, 0px, 0px);
+			-moz-transform: translate3d(0px, 0px, 0px);
+			transform: translate3d(0px, 0px, 0px);
+			border-top: 1px solid;
+			margin-top:-1px;
+			display: block;
+			height: 1px;
+			width: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<b class="bullet"></b>
+		<ul>
+			<li><a href="#" class="item1 btn">Item 1</a></li>
+			<li><a href="#" class="item2 btn">Item 2</a></li>
+		</ul>
+		
+		
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.btn').click(function(event) {
+				/* Act on the event */
+				var $this = $(this),	
+					value = $this.position(),
+					lengh = $this.innerWidth();
+				console.log(value);
+				console.log(lengh);
+				var s = "translate3d("+15" "+ value.left + "px, 0, 0)";
+
+				$('.bullet').css('-webkit-transform', s);
+				// $('.bullet').css('width', lengh);
+			});
+		});
+	</script>
+</body>
+</html>
